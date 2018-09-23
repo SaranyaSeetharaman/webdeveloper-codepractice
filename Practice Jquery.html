@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>jQuery</title>
+        <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+        <style type="text/css">
+            .circle {
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                background-color: green;
+                margin: 10px;   
+            }
+        </style>
+    </head>
+    <body>
+    	<p>Circle 1 - click the below circle to change it to square and background colour from green to red </p>
+       	<div class="circle" id="circle1"></div>
+       	<p>Circle 2 - hover the below circle to display background color in a pop up </p>
+       	<div class="circle" id="circle2"></div>
+       	<p>Circle 3 - click on toggle button to hide and display circle <button id=toggleBtn>Click Here</button></p>
+       	<div class="circle" id="circle3"></div>
+       	<p>Circle 4 - click on below circle to grow it big </p>
+       	<div class="circle" id="circle4"></div>
+        <script type="text/javascript">
+            $("div").click(function() { 
+            	if($(this).attr("id")=="circle1"){
+            		$(this).css({
+            			'background-color': 'red',
+            			'border-radius': '0%'
+                	});
+            	}else if ($(this).attr("id")=="circle4") {
+            		$("#circle4").animate({width: "400px", "height": "400px"}, 2000);
+            	}
+            });
+            $("div").hover(function() { 
+            	if($(this).attr("id")=="circle2"){
+            		alert($(this).css('background-color')); }
+            });
+ 			$("#toggleBtn").click(function(){
+					$("#circle3").fadeToggle('slow');
+ 			});
+                 
+        </script>
+    </body>
+</html>
